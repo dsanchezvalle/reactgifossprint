@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+//Dependencies
+import React, { useState, useEffect } from "react";
 
-function App() {
+//Styles
+import "./styles.css";
+
+//Components
+import Header from "./assets/components/Header/Header";
+import Searchbar from "./assets/components/Searchbar/Searchbar";
+import Results from "./assets/components/Results/Results";
+
+export default function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  function setTheme() {
+    setIsDarkMode(!isDarkMode);
+  }
+
+  useEffect(() => {
+    updateThemeColors(isDarkMode);
+  }, [isDarkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Header isDark={isDarkMode} onThemeChange={setTheme} />
+      <Searchbar />
+      <Results /> 
+    </main>
   );
 }
 
-export default App;
+function updateThemeColors(isDarkMode) {
+  let root = document.documentElement;
+
+  if (isDarkMode) {
+    root.style.setProperty("--bkgd-color", "var(--dark-bkgd-color)");
+    root.style.setProperty("--font-color", "var(--dark-font-color)");
+  } else {
+    root.style.setProperty("--bkgd-color", "var(--light-bkgd-color)");
+    root.style.setProperty("--font-color", "var(--light-font-color)");
+  }
+}
+
