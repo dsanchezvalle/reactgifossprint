@@ -1,0 +1,71 @@
+.Searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4.375rem;
+    width: 100vw;
+  }
+  
+  .Searchbar__Welcome {
+    font-size: 2.25rem;
+    color: var(--font-color);
+    transition: color 0.5s ease;
+  }
+  
+  .Searchbar__Welcome span {
+    font-weight: bold;
+  }
+  
+  .Searchbar__Image {
+    margin-top: 1rem;
+    width: 32vw;
+    max-width: 30rem;
+  }
+  
+  .Searchbar__Wrapper {
+    display: flex;
+    border: 1px solid var(--font-color);
+    border-radius: var(--border-radius);
+    width: 60vw;
+    max-width: 40rem;
+    transition: color 0.5s ease;
+  }
+  
+  .Searchbar__Input {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    width: 84%;
+    padding-left: 1.5rem;
+    height: 3.25rem;
+    border: none;
+    color: var(--font-color);
+    font-size: 1.125rem;
+    font-weight: 100;
+    background-color: var(--bkgd-color);
+    transition: color 0.5s ease;
+  }
+  
+  ::placeholder {
+    color: var(--font-color);
+    transition: color 0.5s ease;
+  }
+  
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: var(--font-color);
+    transition: color 0.5s ease;
+  }
+  
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: var(--font-color);
+    transition: color 0.5s ease;
+  }
+  
+  .Searchbar__Btn {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    width: 16%;
+    background-color: rgb(87, 46, 229);
+    border: none;
+  }
+  
