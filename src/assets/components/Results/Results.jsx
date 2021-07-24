@@ -1,6 +1,5 @@
 import "./Results.css";
 import {URLS} from '../../constants'
-//import { gifList } from "../../data.js";
 
 export default function Results({results, error}) {
   return (
