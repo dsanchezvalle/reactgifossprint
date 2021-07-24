@@ -9,6 +9,9 @@ import Header from "./assets/components/Header/Header";
 import Searchbar from "./assets/components/Searchbar/Searchbar";
 import Results from "./assets/components/Results/Results";
 
+//Constants
+import {URLS, API_KEY, RESULTS_LIMIT} from '../src/assets/constants'
+
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [gifList, setGifList] = useState([]);
@@ -25,7 +28,7 @@ export default function App() {
     if (gifList.length === 0){
       let getGifs = async()=>{
         try{
-          let fetchedData = await fetch('https://api.giphy.com/v1/gifs/search?api_key=PJIoXPZ6kGC515c9JVIiurxRBwYy5RJm&q=dog&limit=12&offset=0&rating=g&lang=en');
+          let fetchedData = await fetch(`${URLS.searchEndPoint}?api_key=${API_KEY}&q=dog&limit=${RESULTS_LIMIT}&offset=0&rating=g&lang=en`);
           let response = await fetchedData.json();
           let itemList = response.data;
           console.log(itemList)
