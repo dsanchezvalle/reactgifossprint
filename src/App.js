@@ -11,6 +11,7 @@ import Results from "./assets/components/Results/Results";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [gifList, setGifList] = useState([]);
 
   function setTheme() {
     setIsDarkMode(!isDarkMode);
@@ -20,11 +21,31 @@ export default function App() {
     updateThemeColors(isDarkMode);
   }, [isDarkMode]);
 
+  useEffect(()=>{
+    if (gifList.length === 0){
+      let getGifs = async()=>{
+        try{
+          let fetchedData = await fetch('https://api.giphy.com/v1/gifs/search?api_key=PJIoXPZ6kGC515c9JVIiurxRBwYy5RJm&q=dog&limit=12&offset=0&rating=g&lang=en');
+          let response = await fetchedData.json();
+          let itemList = response.data;
+          console.log(itemList)
+          setGifList(itemList);
+          }catch(err){
+            console.log(err);
+          }finally{
+            //Clean up
+          } 
+      }
+      getGifs();
+    }
+    
+  }, [gifList]);
+
   return (
     <main>
       <Header isDark={isDarkMode} onThemeChange={setTheme} />
       <Searchbar />
-      <Results /> 
+      <Results results={gifList} /> 
     </main>
   );
 }
