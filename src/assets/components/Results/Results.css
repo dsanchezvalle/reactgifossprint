@@ -6,7 +6,7 @@
     padding: 1.75rem;
   }
   
-  .Results__Title {
+  .Results__Title{
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     color: var(--font-color);
@@ -25,7 +25,7 @@
     column-gap: 16px;
   }
   
-  .Results__Grid img {
+  .Results__Card {
     /* Just in case there are inline attributes */
     width: 100% !important;
     height: auto !important;
@@ -35,6 +35,24 @@
       0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
   }
   
+  .Results__Error{
+    display: flex;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Results__Error .Results__Card{
+    max-width: 6.25rem;
+  }
+  
+  .Results__Error .Results__ErrorText{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--font-color);
+    transition: color 0.5s ease;
+  }
+
   @media (max-width: 1200px) {
     .Results__Grid {
       -moz-column-count: 4;

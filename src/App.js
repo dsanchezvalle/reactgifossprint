@@ -15,6 +15,7 @@ import {URLS, API_KEY, RESULTS_LIMIT} from '../src/assets/constants'
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [gifList, setGifList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   function setTheme() {
     setIsDarkMode(!isDarkMode);
@@ -31,10 +32,10 @@ export default function App() {
           let fetchedData = await fetch(`${URLS.searchEndPoint}?api_key=${API_KEY}&q=dog&limit=${RESULTS_LIMIT}&offset=0&rating=g&lang=en`);
           let response = await fetchedData.json();
           let itemList = response.data;
-          console.log(itemList)
+          console.log(itemList[0].images);
           setGifList(itemList);
           }catch(err){
-            console.log(err);
+            setErrorMessage("Whoops! An error has occurred while we were bringing your gifs. Try again.")
           }finally{
             //Clean up
           } 
@@ -48,7 +49,7 @@ export default function App() {
     <main>
       <Header isDark={isDarkMode} onThemeChange={setTheme} />
       <Searchbar />
-      <Results results={gifList} /> 
+      <Results results={gifList} error={errorMessage}/> 
     </main>
   );
 }
