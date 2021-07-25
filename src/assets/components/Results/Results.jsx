@@ -1,13 +1,19 @@
+//Styles
 import "./Results.css";
+//Constants
 import {URLS} from '../../constants'
+//Context
+import { useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 
-export default function Results({results, error}) {
+export default function Results() {
+  const {gifList, errorMessage} = useContext(AppContext);
   return (
     <section className="Results">
       <p className="Results__Title">Search results</p>
-        {error.length === 0 ? (
+        {errorMessage.length === 0 ? (
           <section className="Results__Grid" id="results">
-            {results.map((gif) => {
+            {gifList.map((gif) => {
               return (
                 <img
                   className="Results__Card"
@@ -24,10 +30,9 @@ export default function Results({results, error}) {
                     src={URLS.errorGif}
                     alt={`gif-error`}
                   />
-            
-            <p className="Results__ErrorText">{error}</p>
+            <p className="Results__ErrorText">{errorMessage}</p>
           </section>
-        )}             
+        )}              
     </section>
   );
 }

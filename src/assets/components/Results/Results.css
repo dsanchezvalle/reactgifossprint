@@ -43,13 +43,13 @@
   }
 
   .Results__Error .Results__Card{
-    max-width: 6.25rem;
+    max-width: 4rem;
   }
   
   .Results__Error .Results__ErrorText{
-    margin-bottom: 1rem;
     font-size: 1rem;
     color: var(--font-color);
+    align-self: center;
     transition: color 0.5s ease;
   }
 
