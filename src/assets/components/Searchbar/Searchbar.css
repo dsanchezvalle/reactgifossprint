@@ -25,23 +25,29 @@
   
   .Searchbar__Wrapper {
     display: flex;
+    flex-direction: column;
     border: 1px solid var(--font-color);
     border-radius: var(--border-radius);
     width: 60vw;
     max-width: 40rem;
     transition: color 0.5s ease;
   }
+
+  .Searchbar__Query{
+    display: flex;
+    align-items: stretch;
+  }
   
   .Searchbar__Input {
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     width: 84%;
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     height: 3.25rem;
     border: none;
     color: var(--font-color);
     font-size: 1.125rem;
     font-weight: 100;
-    background-color: var(--bkgd-color);
+    background-color: transparent;
     transition: color 0.5s ease;
   }
   
@@ -68,4 +74,24 @@
     background-color: rgb(87, 46, 229);
     border: none;
   }
+
+  .Searchbar__SuggestionItem{
+    padding-left: 2rem;
+    color: var(--font-color);
+    font-size: 1.125rem;
+    font-weight: 100;
+    background-color: transparent;
+  }
+
+  .Searchbar__SuggestionItem:hover{
+    background-color: var(--font-color);
+    color: var(--bkgd-color);
+  }
+
+  .Searchbar__SuggestionItem:last-of-type{
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding-bottom: .5rem;
+  } 
+  
+
   
