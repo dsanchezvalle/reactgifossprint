@@ -1,8 +1,19 @@
+//Dependencies
+import { useContext } from "react";
+
+//Styles
 import "./Searchbar.css";
+
+//Context
+import { AppContext } from "../../contexts/AppContext";
+
+//Constants and Icons
 import { ReactComponent as SearchIcon } from "../../images/search_icon.svg";
 import {URLS} from '../../constants'
 
 export default function Searchbar() {
+  const {queryInput, setQueryInput} = useContext(AppContext);
+  
   return (
     <section className="Searchbar">
       <p className="Searchbar__Welcome">
@@ -18,6 +29,8 @@ export default function Searchbar() {
           className="Searchbar__Input"
           type="text"
           placeholder="Search gifs"
+          onChange={(e)=>setQueryInput(e.target.value)}
+          value={queryInput}
         />
         <button className="Searchbar__Btn">
           {" "}

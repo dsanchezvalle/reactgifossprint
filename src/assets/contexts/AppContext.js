@@ -8,7 +8,8 @@ export const AppContext = createContext();
 export default function AppProvider({children}){
     const [gifList, setGifList] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    console.log(errorMessage)
+    const [queryInput, setQueryInput] = useState('test text');
+    
     useEffect(()=>{
         if (gifList.length === 0){
           let getGifs = async()=>{
@@ -30,7 +31,7 @@ export default function AppProvider({children}){
       }, [gifList]);
 
     return(
-        <AppContext.Provider value={{gifList, errorMessage}}>
+        <AppContext.Provider value={{gifList, errorMessage, queryInput, setQueryInput}}>
             {children}
         </AppContext.Provider>
     );
