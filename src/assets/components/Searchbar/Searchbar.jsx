@@ -13,20 +13,23 @@ import {URLS, API_KEY, RESULTS_LIMIT} from '../../constants'
 
 export default function Searchbar() {
   const [suggestionList, setSuggestionList] = useState([]);
-  const {gifList, queryInput, setQueryInput} = useContext(AppContext);
+  const {setGifList, setQueryInput} = useContext(AppContext);
+  const [userInput, setUserInput] = useState('');
   
   function handleSearchButton(){
-    //Pending
+    setQueryInput(userInput);
+    setGifList([]);
   }
 
-  function handleInputChange(inputText){
-    setQueryInput(inputText);
+  function handleInputChange(input){
+    setUserInput(input);
   }
 
   useEffect(()=>{
+    if(userInput.length>0){
     let getSuggestions = async()=>{
     try{
-      let fetchedData = await fetch(`${URLS.searchEndPoint}/tags?api_key=${API_KEY}&q=${queryInput}&limit=${RESULTS_LIMIT}&offset=0&rating=g&lang=en`);
+      let fetchedData = await fetch(`${URLS.searchEndPoint}/tags?api_key=${API_KEY}&q=${userInput}&limit=${RESULTS_LIMIT}&offset=0&rating=g&lang=en`);
       let response = await fetchedData.json();
       let itemList = response.data;
       setSuggestionList(itemList);
@@ -36,9 +39,9 @@ export default function Searchbar() {
         //Clean up
       } 
     }
-    getSuggestions();
-  }, [queryInput]);
-  console.log(suggestionList);
+    getSuggestions();}
+  }, [userInput]);
+  
   return (
     <section className="Searchbar">
       <p className="Searchbar__Welcome">
@@ -56,7 +59,7 @@ export default function Searchbar() {
             type="text"
             placeholder="Search gifs"
             onChange={(e)=>handleInputChange(e.target.value)}
-            value={queryInput}
+            value={userInput}
           />
           <button onClick={handleSearchButton} className="Searchbar__Btn">
             {" "}
