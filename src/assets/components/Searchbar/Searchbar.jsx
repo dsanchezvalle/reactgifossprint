@@ -100,7 +100,7 @@ export default function Searchbar() {
             
         </div>  
         <div className="Searchbar__Suggestions">
-          {suggestionList.map(suggestionItem => <div onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
+          {suggestionList.map(suggestionItem => <div key={`k-${suggestionItem.name}`} onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
         </div>
       </div>
     </section>

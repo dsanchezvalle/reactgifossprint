@@ -109,3 +109,8 @@
   .Searchbar__SuggestionItem:first-of-type{
     margin-top: 0.3rem;
   }
+
+  .Searchbar__SuggestionItem::before{
+    content: url('../../images/suggestion_icon.svg');
+    margin: 0 1rem 0 -1rem;
+  }

@@ -16,6 +16,7 @@ export default function Results() {
             {gifList.map((gif) => {
               return (
                 <img
+                  key={`k-${gif.id}`}
                   className="Results__Card"
                   src={gif.images.fixed_height.url}
                   alt={`gif ${gif.id}`}
