@@ -15,18 +15,25 @@ export default function Searchbar() {
   const [suggestionList, setSuggestionList] = useState([]);
   const {setGifList, setQueryInput} = useContext(AppContext);
   const [userInput, setUserInput] = useState('');
-  
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
   function handleSearchButton(){
     setQueryInput(userInput);
     setGifList([]);
+    setShowSuggestions(false);
+    setSuggestionList([]);
   }
 
   function handleInputChange(input){
     setUserInput(input);
+    setShowSuggestions(true);
+    if(input.length===0){
+      setSuggestionList([]);
+    }
   }
 
   useEffect(()=>{
-    if(userInput.length>0){
+    if(userInput.length>0 && showSuggestions){
     let getSuggestions = async()=>{
     try{
       let fetchedData = await fetch(`${URLS.searchEndPoint}/tags?api_key=${API_KEY}&q=${userInput}&limit=${RESULTS_LIMIT}&offset=0&rating=g&lang=en`);
@@ -40,7 +47,15 @@ export default function Searchbar() {
       } 
     }
     getSuggestions();}
-  }, [userInput]);
+  }, [userInput, showSuggestions]);
+
+  function handleSuggestionClick(e){
+    setUserInput(e.target.innerHTML); 
+    setQueryInput(e.target.innerHTML);
+    setGifList([]);
+    setShowSuggestions(false);
+    setSuggestionList([]);
+  }
   
   return (
     <section className="Searchbar">
@@ -67,7 +82,7 @@ export default function Searchbar() {
           </button>
         </div>  
         <div className="Searchbar__Suggestions">
-          {suggestionList.map(suggestionItem => <div className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
+          {suggestionList.map(suggestionItem => <div onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
         </div>
       </div>
     </section>
