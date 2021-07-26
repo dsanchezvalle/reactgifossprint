@@ -73,6 +73,19 @@
     width: 16%;
     background-color: rgb(87, 46, 229);
     border: none;
+    transition: border 0.5s ease;
+  }
+
+  .Searchbar__CloseSuggestions{ 
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    width: 16%;
+    background: var(--bkgd-color);
+    border: none;
+    transition: border 0.5s ease;
+  }
+
+  .Searchbar__CloseSuggestions svg{
+    fill:var(--font-color);
   }
 
   .Searchbar__SuggestionItem{
@@ -91,7 +104,8 @@
   .Searchbar__SuggestionItem:last-of-type{
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     padding-bottom: .5rem;
-  } 
+  }
   
-
-  
+  .Searchbar__SuggestionItem:first-of-type{
+    margin-top: 0.3rem;
+  }

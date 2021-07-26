@@ -9,6 +9,7 @@ import { AppContext } from "../../contexts/AppContext";
 
 //Constants and Icons
 import { ReactComponent as SearchIcon } from "../../images/search_icon.svg";
+import { ReactComponent as CloseIcon } from "../../images/close_icon.svg";
 import {URLS, API_KEY, RESULTS_LIMIT} from '../../constants'
 
 export default function Searchbar() {
@@ -30,6 +31,14 @@ export default function Searchbar() {
     if(input.length===0){
       setSuggestionList([]);
     }
+  }
+  
+  function handleCloseSuggestionsButton(){
+    setQueryInput('');
+    setUserInput('');
+    setGifList([]);
+    setShowSuggestions(false);
+    setSuggestionList([]);
   }
 
   useEffect(()=>{
@@ -76,10 +85,19 @@ export default function Searchbar() {
             onChange={(e)=>handleInputChange(e.target.value)}
             value={userInput}
           />
-          <button onClick={handleSearchButton} className="Searchbar__Btn">
-            {" "}
-            <SearchIcon />{" "}
-          </button>
+          {(showSuggestions && userInput.length>0)? 
+          (
+            <button onClick={handleCloseSuggestionsButton} className="Searchbar__CloseSuggestions">
+              <CloseIcon />
+            </button>
+          ):(
+            <button onClick={handleSearchButton} className="Searchbar__Btn">
+              <SearchIcon />
+            </button>
+          )          
+          }
+          
+            
         </div>  
         <div className="Searchbar__Suggestions">
           {suggestionList.map(suggestionItem => <div onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
