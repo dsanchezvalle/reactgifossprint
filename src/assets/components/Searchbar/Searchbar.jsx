@@ -14,7 +14,7 @@ import {URLS, API_KEY, RESULTS_LIMIT} from '../../constants'
 
 export default function Searchbar() {
   const [suggestionList, setSuggestionList] = useState([]);
-  const {setGifList, setQueryInput} = useContext(AppContext);
+  const {setGifList, setQueryInput, setErrorMessage} = useContext(AppContext);
   const [userInput, setUserInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -23,6 +23,7 @@ export default function Searchbar() {
     setGifList([]);
     setShowSuggestions(false);
     setSuggestionList([]);
+    setErrorMessage('');
   }
 
   function handleInputChange(input){
@@ -39,6 +40,7 @@ export default function Searchbar() {
     setGifList([]);
     setShowSuggestions(false);
     setSuggestionList([]);
+    setErrorMessage('');
   }
 
   useEffect(()=>{
@@ -69,6 +71,7 @@ export default function Searchbar() {
       setGifList([]);
       setShowSuggestions(false);
       setSuggestionList([]);
+      setErrorMessage('');
   }
 
   function handleKeyDown(e){
@@ -78,6 +81,7 @@ export default function Searchbar() {
       setGifList([]);
       setShowSuggestions(false);
       setSuggestionList([]);
+      setErrorMessage('');
     }
   }
   

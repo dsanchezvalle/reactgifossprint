@@ -8,10 +8,12 @@ import { AppContext } from "../../contexts/AppContext";
 
 export default function Results({welcomeMessage}) {
   const {gifList, errorMessage} = useContext(AppContext);
+
+
   return (
     <section className="Results">
       <h3 className="Results__Title">Search results</h3>
-        {gifList.length===0&&<p className="Results__Welcome">{welcomeMessage}</p>}
+        {(gifList.length===0)&&<p className="Results__Welcome">{welcomeMessage}</p>}
         {errorMessage.length === 0 ? (
           <section className="Results__Grid" id="results">
             {gifList.map((gif) => {
