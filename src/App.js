@@ -9,6 +9,9 @@ import Header from "./assets/components/Header/Header";
 import Searchbar from "./assets/components/Searchbar/Searchbar";
 import Results from "./assets/components/Results/Results";
 
+//App Context
+import AppProvider from "./assets/contexts/AppContext";
+
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -21,11 +24,13 @@ export default function App() {
   }, [isDarkMode]);
 
   return (
+    <AppProvider>
     <main>
       <Header isDark={isDarkMode} onThemeChange={setTheme} />
       <Searchbar />
-      <Results /> 
+      <Results/> 
     </main>
+    </AppProvider>
   );
 }
 
