@@ -83,9 +83,9 @@ export default function Searchbar() {
   
   return (
     <section className="Searchbar">
-      <p className="Searchbar__Welcome">
+      <h2 className="Searchbar__Welcome">
         Get inspired and find the best <span>GIFS!</span>
-      </p>
+      </h2>
       <img
         className="Searchbar__Image"
         src= {URLS.publicPath + "/images/header.png"}

@@ -14,6 +14,7 @@ import AppProvider from "./assets/contexts/AppContext";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState('');
 
   function setTheme() {
     setIsDarkMode(!isDarkMode);
@@ -23,12 +24,16 @@ export default function App() {
     updateThemeColors(isDarkMode);
   }, [isDarkMode]);
 
+  useEffect(()=>{
+    setWelcomeMessage('Welcome to Gifos, start searching for amazing gifs.');
+  },[]);
+
   return (
     <AppProvider>
     <main>
       <Header isDark={isDarkMode} onThemeChange={setTheme} />
       <Searchbar />
-      <Results/> 
+      <Results welcomeMessage={welcomeMessage}/> 
     </main>
     </AppProvider>
   );

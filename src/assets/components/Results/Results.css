@@ -9,6 +9,7 @@
   .Results__Title{
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
+    font-weight: 400;
     color: var(--font-color);
     transition: color 0.5s ease;
   }
@@ -46,7 +47,7 @@
     max-width: 4rem;
   }
   
-  .Results__Error .Results__ErrorText{
+  .Results__Error .Results__ErrorText, .Results__Welcome{
     font-size: 1rem;
     color: var(--font-color);
     align-self: center;
