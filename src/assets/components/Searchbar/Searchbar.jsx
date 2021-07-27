@@ -59,11 +59,16 @@ export default function Searchbar() {
   }, [userInput, showSuggestions]);
 
   function handleSuggestionClick(e){
-    setUserInput(e.target.innerHTML); 
-    setQueryInput(e.target.innerHTML);
-    setGifList([]);
-    setShowSuggestions(false);
-    setSuggestionList([]);
+    if(e.target.id !== "Searchbar__Input"){
+      setUserInput(e.target.innerHTML); 
+      setQueryInput(e.target.innerHTML);
+    } else if(e.target.id === "Searchbar__Input"){
+      setUserInput(e.target.value); 
+      setQueryInput(e.target.value);
+    }
+      setGifList([]);
+      setShowSuggestions(false);
+      setSuggestionList([]);
   }
   
   return (
@@ -79,11 +84,13 @@ export default function Searchbar() {
       <div className="Searchbar__Wrapper">
         <div className="Searchbar__Query">
           <input
+            id="Searchbar__Input"
             className={`Searchbar__Input ${(showSuggestions && userInput.length>0)&&'Searchbar__Icon'}`}
             type="text"
             placeholder="Search gifs"
             onChange={(e)=>handleInputChange(e.target.value)}
             value={userInput}
+            onClick={handleSuggestionClick}
           />
           {(showSuggestions && userInput.length>0)? 
           (
