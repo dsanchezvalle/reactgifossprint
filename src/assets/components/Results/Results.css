@@ -36,7 +36,7 @@
       0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
   }
   
-  .Results__Error{
+  .Results__Error, .Results__Welcome{
     display: flex;
     width: 75%;
     align-items: center;
@@ -46,8 +46,12 @@
   .Results__Error .Results__Card{
     max-width: 4rem;
   }
+
+  .Results__Welcome .Results__Card{
+    max-width: 6rem;
+  }
   
-  .Results__Error .Results__ErrorText, .Results__Welcome{
+  .Results__Error .Results__ErrorText, .Results__Welcome .Results__WelcomeText{
     font-size: 1rem;
     color: var(--font-color);
     align-self: center;

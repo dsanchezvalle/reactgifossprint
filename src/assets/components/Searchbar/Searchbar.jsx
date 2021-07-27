@@ -52,7 +52,7 @@ export default function Searchbar() {
       let itemList = response.data;
       setSuggestionList(itemList);
       }catch(err){
-        //PENDING: setErrorMessage("Whoops! We got an error while bringing your gifs. Try again.")
+        setErrorMessage("Whoops! We got an error while bringing your suggestions. Try again.")
       }finally{
         //Clean up
       } 
@@ -67,6 +67,7 @@ export default function Searchbar() {
     } else if(e.target.id === "Searchbar__Input"){
       setUserInput(e.target.value); 
       setQueryInput(e.target.value);
+      if (!showSuggestions) return;
     }
       setGifList([]);
       setShowSuggestions(false);
@@ -117,9 +118,7 @@ export default function Searchbar() {
               <SearchIcon />
             </button>
           )          
-          }
-          
-            
+          } 
         </div>  
         <div className="Searchbar__Suggestions">
           {suggestionList.map(suggestionItem => <div key={`k-${suggestionItem.name}`} onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}

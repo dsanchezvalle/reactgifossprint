@@ -9,11 +9,19 @@ import { AppContext } from "../../contexts/AppContext";
 export default function Results({welcomeMessage}) {
   const {gifList, errorMessage} = useContext(AppContext);
 
-
   return (
     <section className="Results">
       <h3 className="Results__Title">Search results</h3>
-        {(gifList.length===0&&errorMessage.length===0)&&<p className="Results__Welcome">{welcomeMessage}</p>}
+        {(gifList.length===0&&errorMessage.length===0)&&
+        <section className="Results__Welcome">
+          <img
+                  className="Results__Card"
+                  src={URLS.welcomeGif}
+                  alt={`gif-error`}
+                />
+          <p className="Results__WelcomeText">{welcomeMessage}</p>
+        </section>            
+        }
         {errorMessage.length === 0 ? (
           <section className="Results__Grid" id="results">
             {gifList.map((gif) => {
