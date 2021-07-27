@@ -70,6 +70,16 @@ export default function Searchbar() {
       setShowSuggestions(false);
       setSuggestionList([]);
   }
+
+  function handleKeyDown(e){
+    if(e.key === "Enter"){
+      setUserInput(e.target.value); 
+      setQueryInput(e.target.value);
+      setGifList([]);
+      setShowSuggestions(false);
+      setSuggestionList([]);
+    }
+  }
   
   return (
     <section className="Searchbar">
@@ -91,6 +101,7 @@ export default function Searchbar() {
             onChange={(e)=>handleInputChange(e.target.value)}
             value={userInput}
             onClick={handleSuggestionClick}
+            onKeyDown={handleKeyDown}
           />
           {(showSuggestions && userInput.length>0)? 
           (
