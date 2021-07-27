@@ -79,7 +79,7 @@ export default function Searchbar() {
       <div className="Searchbar__Wrapper">
         <div className="Searchbar__Query">
           <input
-            className="Searchbar__Input"
+            className={`Searchbar__Input ${(showSuggestions && userInput.length>0)&&'Searchbar__Icon'}`}
             type="text"
             placeholder="Search gifs"
             onChange={(e)=>handleInputChange(e.target.value)}
