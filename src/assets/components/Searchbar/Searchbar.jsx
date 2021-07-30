@@ -103,6 +103,7 @@ export default function Searchbar() {
             className={`Searchbar__Input ${(showSuggestions && userInput.length>0)&&'Searchbar__Icon'}`}
             type="text"
             placeholder="Search gifs"
+            autoComplete="off"
             onChange={(e)=>handleInputChange(e.target.value)}
             value={userInput}
             onClick={handleSuggestionClick}
