@@ -7,12 +7,14 @@ import { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 
 export default function Results({welcomeMessage}) {
-  const {gifList, errorMessage} = useContext(AppContext);
+  //Context
+  const {gifList, errorMessage, isLoading} = useContext(AppContext);
 
   return (
     <section className="Results">
       <h3 className="Results__Title">Search results</h3>
-        {(gifList.length===0&&errorMessage.length===0)&&
+      {isLoading?<div className="Results__Loader"></div>:''}
+        {(gifList.length===0 && errorMessage.length===0 && !isLoading)&&
         <section className="Results__Welcome">
           <img
                   className="Results__Card"

@@ -13,6 +13,7 @@ import Results from "./assets/components/Results/Results";
 import AppProvider from "./assets/contexts/AppContext";
 
 export default function App() {
+  //States
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [welcomeMessage, setWelcomeMessage] = useState('');
 
@@ -20,10 +21,12 @@ export default function App() {
     setIsDarkMode(!isDarkMode);
   }
 
+  //Effect to update App Theme
   useEffect(() => {
     updateThemeColors(isDarkMode);
   }, [isDarkMode]);
 
+  //Effect setting the Welcome message
   useEffect(()=>{
     setWelcomeMessage('Welcome to Gifos, start searching for amazing gifs.');
   },[]);
