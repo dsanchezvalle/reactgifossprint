@@ -17,4 +17,10 @@
     color: var(--font-color);
     transition: color 0.5s ease;
   }
+
+  .Header__ThemeButton:hover{
+    border: 1px solid var(--font-color);
+    color: var(--bkgd-color);
+    background-color: var(--font-color);
+  }
   

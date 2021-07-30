@@ -24,3 +24,7 @@ body {
   background-color: var(--bkgd-color);
   transition: background-color 1s ease;
 }
+
+button:active{
+  transform: scale(0.98);
+}
