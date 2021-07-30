@@ -10,6 +10,7 @@
   .Searchbar__Welcome {
     font-size: 2.25rem;
     color: var(--font-color);
+    font-weight: 400;
     transition: color 0.5s ease;
   }
   
@@ -58,6 +59,7 @@
     background-position-x: 1rem;
     background-position-y: center;  
     padding-left: 3rem;
+    cursor: pointer;
   }
   
   ::placeholder {
@@ -83,18 +85,28 @@
     background-color: rgb(87, 46, 229);
     border: none;
     transition: border 0.5s ease;
+    cursor: pointer;
   }
 
   .Searchbar__CloseSuggestions{ 
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: 0 var(--border-radius) 0 0;
     width: 16%;
     background: var(--bkgd-color);
     border: none;
     transition: border 0.5s ease;
+    cursor: pointer;
+  }
+
+  .Searchbar__CloseSuggestions:hover{
+    background-color: var(--font-color); 
   }
 
   .Searchbar__CloseSuggestions svg{
     fill:var(--font-color);
+  }
+
+  .Searchbar__CloseSuggestions:hover svg{
+    fill:var(--bkgd-color);
   }
 
   .Searchbar__SuggestionItem{
@@ -103,6 +115,7 @@
     font-size: 1.125rem;
     font-weight: 100;
     background-color: transparent;
+    cursor: pointer;
   }
 
   .Searchbar__SuggestionItem:hover{
@@ -116,16 +129,12 @@
   }
   
   .Searchbar__SuggestionItem:first-of-type{
-    margin-top: 0.3rem;
+    /* margin-top: -.3rem; */
+    padding-top: .3rem;
+    border-top: 1.5px solid lightgray;
   }
 
   .Searchbar__SuggestionItem::before{
     content: url('../../images/suggestion_icon.svg');
     margin: 0 1rem 0 -1rem;
   }
-
- /*  .Searchbar__Input::before{
-    content: url('../../images/suggestion_icon.svg');
-    background-color: lightseagreen;
-    
-  } */

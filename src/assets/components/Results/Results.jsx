@@ -6,11 +6,24 @@ import {URLS} from '../../constants'
 import { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 
-export default function Results() {
-  const {gifList, errorMessage} = useContext(AppContext);
+export default function Results({welcomeMessage}) {
+  //Context
+  const {gifList, errorMessage, isLoading} = useContext(AppContext);
+
   return (
     <section className="Results">
-      <p className="Results__Title">Search results</p>
+      <h3 className="Results__Title">Search results</h3>
+      {isLoading?<div className="Results__Loader"></div>:''}
+        {(gifList.length===0 && errorMessage.length===0 && !isLoading)&&
+        <section className="Results__Welcome">
+          <img
+                  className="Results__Card"
+                  src={URLS.welcomeGif}
+                  alt={`gif-error`}
+                />
+          <p className="Results__WelcomeText">{welcomeMessage}</p>
+        </section>            
+        }
         {errorMessage.length === 0 ? (
           <section className="Results__Grid" id="results">
             {gifList.map((gif) => {

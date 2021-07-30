@@ -14,7 +14,7 @@ import {URLS, API_KEY, RESULTS_LIMIT} from '../../constants'
 
 export default function Searchbar() {
   const [suggestionList, setSuggestionList] = useState([]);
-  const {setGifList, setQueryInput} = useContext(AppContext);
+  const {setGifList, setQueryInput, setErrorMessage} = useContext(AppContext);
   const [userInput, setUserInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -23,6 +23,7 @@ export default function Searchbar() {
     setGifList([]);
     setShowSuggestions(false);
     setSuggestionList([]);
+    setErrorMessage('');
   }
 
   function handleInputChange(input){
@@ -39,6 +40,7 @@ export default function Searchbar() {
     setGifList([]);
     setShowSuggestions(false);
     setSuggestionList([]);
+    setErrorMessage('');
   }
 
   useEffect(()=>{
@@ -50,7 +52,7 @@ export default function Searchbar() {
       let itemList = response.data;
       setSuggestionList(itemList);
       }catch(err){
-        //PENDING: setErrorMessage("Whoops! We got an error while bringing your gifs. Try again.")
+        setErrorMessage("Whoops! We got an error while bringing your suggestions. Try again.")
       }finally{
         //Clean up
       } 
@@ -65,10 +67,12 @@ export default function Searchbar() {
     } else if(e.target.id === "Searchbar__Input"){
       setUserInput(e.target.value); 
       setQueryInput(e.target.value);
+      if (!showSuggestions) return;
     }
       setGifList([]);
       setShowSuggestions(false);
       setSuggestionList([]);
+      setErrorMessage('');
   }
 
   function handleKeyDown(e){
@@ -78,14 +82,15 @@ export default function Searchbar() {
       setGifList([]);
       setShowSuggestions(false);
       setSuggestionList([]);
+      setErrorMessage('');
     }
   }
   
   return (
     <section className="Searchbar">
-      <p className="Searchbar__Welcome">
+      <h2 className="Searchbar__Welcome">
         Get inspired and find the best <span>GIFS!</span>
-      </p>
+      </h2>
       <img
         className="Searchbar__Image"
         src= {URLS.publicPath + "/images/header.png"}
@@ -98,6 +103,7 @@ export default function Searchbar() {
             className={`Searchbar__Input ${(showSuggestions && userInput.length>0)&&'Searchbar__Icon'}`}
             type="text"
             placeholder="Search gifs"
+            autoComplete="off"
             onChange={(e)=>handleInputChange(e.target.value)}
             value={userInput}
             onClick={handleSuggestionClick}
@@ -113,9 +119,7 @@ export default function Searchbar() {
               <SearchIcon />
             </button>
           )          
-          }
-          
-            
+          } 
         </div>  
         <div className="Searchbar__Suggestions">
           {suggestionList.map(suggestionItem => <div key={`k-${suggestionItem.name}`} onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
