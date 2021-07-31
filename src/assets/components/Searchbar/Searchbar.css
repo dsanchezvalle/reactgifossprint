@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 4.375rem;
+    padding: 0 4.375rem;
     width: 100vw;
   }
   
   .Searchbar__Welcome {
+    margin-top: 4.375rem;
     font-size: 2.25rem;
     color: var(--font-color);
     font-weight: 400;
@@ -38,6 +39,7 @@
 
   .Searchbar__Wrapper-With-Suggestions{
     border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border-bottom: none;
   }
 
   .Searchbar__SuggestionsWrapper{
@@ -164,6 +166,7 @@
   
   .Searchbar__SuggestionItem:first-of-type{
     padding-top: .5rem;
+    margin-top: -1px;
     border-top: 1.5px solid lightgray;
   }
 
