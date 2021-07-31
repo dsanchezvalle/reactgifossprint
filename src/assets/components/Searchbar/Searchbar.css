@@ -26,17 +26,50 @@
   
   .Searchbar__Wrapper {
     display: flex;
+    position:relative;
     flex-direction: column;
     border: 1px solid var(--font-color);
     border-radius: var(--border-radius);
     width: 60vw;
     max-width: 40rem;
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.30);
     transition: color 0.5s ease;
+  }
+
+  .Searchbar__Wrapper-With-Suggestions{
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  .Searchbar__SuggestionsWrapper{
+    display: flex;
+    position: relative;
+    margin: 0 -1px;
+    z-index: 1;
+  }
+
+  .Searchbar__Suggestions{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--bkgd-color);
+    width: 100%;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    border-right: 1px solid var(--font-color);
+    border-left: 1px solid var(--font-color);
+    border-bottom: 1px solid var(--font-color);
+    border-top: none;
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.30);
+    clip-path: inset(0 -10px -10px -10px);
+  }
+
+  .Searchbar__Wrapper:hover{
+    box-shadow: 0 2px 8px 1px rgba(64,60,67,.55);
   }
 
   .Searchbar__Query{
     display: flex;
     align-items: stretch;
+    border-radius: var(--border-radius);
   }
   
   .Searchbar__Input {
@@ -114,6 +147,7 @@
     color: var(--font-color);
     font-size: 1.125rem;
     font-weight: 100;
+    margin: .25rem;
     background-color: transparent;
     cursor: pointer;
   }
@@ -129,7 +163,7 @@
   }
   
   .Searchbar__SuggestionItem:first-of-type{
-    padding-top: .3rem;
+    padding-top: .5rem;
     border-top: 1.5px solid lightgray;
   }
 
