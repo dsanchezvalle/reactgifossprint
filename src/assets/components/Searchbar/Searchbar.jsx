@@ -109,7 +109,7 @@ export default function Searchbar() {
             onClick={handleSuggestionClick}
             onKeyDown={handleKeyDown}
           />
-          {(showSuggestions && userInput.length>0)? 
+          {(showSuggestions && userInput.length>0 && suggestionList.length>0)? 
           (
             <button onClick={handleCloseSuggestionsButton} className="Searchbar__CloseSuggestions">
               <CloseIcon />
