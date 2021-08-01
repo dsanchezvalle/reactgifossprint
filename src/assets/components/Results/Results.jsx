@@ -12,10 +12,22 @@ export default function Results({welcomeMessage}) {
   
   return (
     <section className="Results">
-      <h3 className="Results__Title">Search results {
-        gifList.length>0 && 
-        queryInput.length>0 && ['for ', <span className="Results__InputQuery">{queryInput}</span>]}
-      </h3>
+      <section className="Results__Header">
+        <h3 className="Results__Title">Search results {
+          gifList.length>0 && 
+          queryInput.length>0 && ['for ', <span className="Results__InputQuery">{queryInput}</span>]}
+        </h3>
+        <div className="Results__Quantity">
+          <label className="Results__QuantityLabel" htmlFor="Results__QuantityOptions"># Results</label>
+          <select className="Results__QuantityOptions" name="Results__QuantityOptions" id="Results__QuantityOptions">
+            <option value="12">12</option>
+            <option value="24">24</option>
+            <option value="36">36</option>
+          </select>
+        </div>
+      </section>    
+
+
       {isLoading&&<div className="Results__Loader"></div>}
         {(gifList.length===0 && errorMessage.length===0 && !isLoading)&&
         <section className="Results__Welcome">

@@ -4,7 +4,15 @@
     align-items: center;
     width: 100vw;
     padding: 1.75rem;
-  }
+}
+
+.Results__Header{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}  
 
 .Results__Title{
   margin: 1.5rem 0;
@@ -12,6 +20,23 @@
   font-weight: 400;
   color: var(--font-color);
   transition: color 0.5s ease;
+}
+
+.Results__Quantity{
+  padding: 0.3rem;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.Results__QuantityLabel{
+  color: var(--font-color);
+  margin-right: 0.5rem;
+}
+
+.Results__QuantityOptions{
+  color: var(--font-color);
+  border-radius: 6px;
 }
 
 .Results__InputQuery{
@@ -111,11 +136,18 @@
   }
 }
 @media (max-width: 800px) {
+  .Results__Header{ 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .Results__Grid {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
-  }
+  }  
+
 }
 @media (max-width: 400px) {
   .Results__Grid {
