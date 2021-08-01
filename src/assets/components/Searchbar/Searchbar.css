@@ -166,8 +166,8 @@
   
   .Searchbar__SuggestionItem:first-of-type{
     padding-top: .5rem;
-    margin-top: -1px;
-    border-top: 1.5px solid lightgray;
+    margin-top: 0; 
+    border-top: 1px solid rgba(211, 211, 211, 0.5);
   }
 
   .Searchbar__SuggestionItem::before{
