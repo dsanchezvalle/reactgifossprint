@@ -8,12 +8,15 @@ import { AppContext } from "../../contexts/AppContext";
 
 export default function Results({welcomeMessage}) {
   //Context
-  const {gifList, errorMessage, isLoading} = useContext(AppContext);
-
+  const {gifList, errorMessage, isLoading, queryInput} = useContext(AppContext);
+  
   return (
     <section className="Results">
-      <h3 className="Results__Title">Search results</h3>
-      {isLoading?<div className="Results__Loader"></div>:''}
+      <h3 className="Results__Title">Search results {
+        gifList.length>0 && 
+        queryInput.length>0 && ['for ', <span className="Results__InputQuery">{queryInput}</span>]}
+      </h3>
+      {isLoading&&<div className="Results__Loader"></div>}
         {(gifList.length===0 && errorMessage.length===0 && !isLoading)&&
         <section className="Results__Welcome">
           <img
@@ -50,3 +53,4 @@ export default function Results({welcomeMessage}) {
     </section>
   );
 }
+

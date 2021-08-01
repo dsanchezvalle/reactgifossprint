@@ -13,6 +13,14 @@
     color: var(--font-color);
     transition: color 0.5s ease;
   }
+
+  .Results__InputQuery{
+    background-color: lightgrey;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    color: var(--search-btn-color);
+  }
   
   .Results__Grid {
     /* Prevent vertical gaps */
