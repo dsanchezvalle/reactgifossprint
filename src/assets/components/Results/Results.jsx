@@ -28,7 +28,7 @@ export default function Results({welcomeMessage}) {
         </section>            
         }
         {errorMessage.length === 0 ? (
-          <section className="Results__Grid" id="results">
+          <section className={`Results__Grid ${gifList.length>0?'Results__Grid-BorderTop':undefined}`} id="results">
             {gifList.map((gif) => {
               return (
                 <img
