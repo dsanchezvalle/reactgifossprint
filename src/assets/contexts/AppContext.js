@@ -11,7 +11,6 @@ export default function AppProvider({children}){
     const [gifList, setGifList] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [queryInput, setQueryInput] = useState('');
-    const loader = document.querySelector('#loader')
     const [isLoading, setIsLoading] = useState(false);
 
     //Effect to fetch GIFs

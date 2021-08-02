@@ -6,6 +6,7 @@ export default function Header({ isDark, onThemeChange }) {
   return (
     <header className="Header">
       <img
+        className="Header__Logo"
         src={logoPath}
         alt="GIFOS logo"
       />

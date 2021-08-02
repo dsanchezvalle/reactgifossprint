@@ -96,11 +96,11 @@ export default function Searchbar() {
         src= {URLS.publicPath + "/images/header.png"}
         alt="People smiling inviting you to search gifs"
       />
-      <div className="Searchbar__Wrapper">
+      <div className={`Searchbar__Wrapper ${(showSuggestions && suggestionList.length>0)?'Searchbar__Wrapper-With-Suggestions':undefined}`}>
         <div className="Searchbar__Query">
           <input
             id="Searchbar__Input"
-            className={`Searchbar__Input ${(showSuggestions && userInput.length>0)&&'Searchbar__Icon'}`}
+            className={`Searchbar__Input ${(showSuggestions && suggestionList.length>0)?'Searchbar__Icon':undefined}`}
             type="text"
             placeholder="Search gifs"
             autoComplete="off"
@@ -109,7 +109,7 @@ export default function Searchbar() {
             onClick={handleSuggestionClick}
             onKeyDown={handleKeyDown}
           />
-          {(showSuggestions && userInput.length>0)? 
+          {(showSuggestions && userInput.length>0 && suggestionList.length>0)? 
           (
             <button onClick={handleCloseSuggestionsButton} className="Searchbar__CloseSuggestions">
               <CloseIcon />
@@ -121,8 +121,10 @@ export default function Searchbar() {
           )          
           } 
         </div>  
-        <div className="Searchbar__Suggestions">
+        <div className={(showSuggestions && suggestionList.length>0)?'Searchbar__SuggestionsWrapper':undefined}>
+        <div className={(showSuggestions && suggestionList.length>0)?'Searchbar__Suggestions':undefined}>
           {suggestionList.map(suggestionItem => <div key={`k-${suggestionItem.name}`} onClick={handleSuggestionClick} className="Searchbar__SuggestionItem">{suggestionItem.name}</div>)}
+        </div>
         </div>
       </div>
     </section>
