@@ -8,8 +8,16 @@ import { AppContext } from "../../contexts/AppContext";
 
 export default function Results({welcomeMessage}) {
   //Context
-  const {gifList, errorMessage, isLoading, queryInput} = useContext(AppContext);
+  const {gifList, errorMessage, isLoading, queryInput, resultsLimit, setResultsLimit, setGifList, setQueryInput} = useContext(AppContext);
   
+  //Results limit handler
+  function handleResultsLimit(e){
+    console.log(e.target.value)
+    setResultsLimit(e.target.value);
+    setQueryInput(queryInput);
+    setGifList([]);
+  }
+
   return (
     <section className="Results">
       <section className="Results__Header">
@@ -19,10 +27,15 @@ export default function Results({welcomeMessage}) {
         </h3>
         <div className="Results__Quantity">
           <label className="Results__QuantityLabel" htmlFor="Results__QuantityOptions"># Results</label>
-          <select className="Results__QuantityOptions" name="Results__QuantityOptions" id="Results__QuantityOptions">
-            <option value="12">12</option>
-            <option value="24">24</option>
-            <option value="36">36</option>
+          <select 
+            value={resultsLimit} 
+            onChange={handleResultsLimit}
+            className="Results__QuantityOptions" 
+            name="Results__QuantityOptions" 
+            id="Results__QuantityOptions">
+            <option value={'12'}>12</option>
+            <option value={'24'}>24</option>
+            <option value={'36'}>36</option>
           </select>
         </div>
       </section>    

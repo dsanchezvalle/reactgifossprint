@@ -12,6 +12,7 @@ export default function AppProvider({children}){
     const [errorMessage, setErrorMessage] = useState('');
     const [queryInput, setQueryInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [resultsLimit, setResultsLimit] = useState('12');
 
     //Effect to fetch GIFs
     useEffect(()=>{
@@ -19,7 +20,7 @@ export default function AppProvider({children}){
           let getGifs = async()=>{
             try{
               setIsLoading(true);
-              let fetchedData = await fetch(`${URLS.searchEndPoint}?api_key=${API_KEY}&q=${queryInput}&limit=${RESULTS_LIMIT}&offset=0&rating=g&lang=en`);
+              let fetchedData = await fetch(`${URLS.searchEndPoint}?api_key=${API_KEY}&q=${queryInput}&limit=${resultsLimit}&offset=0&rating=g&lang=en`);
               let response = await fetchedData.json();
               setIsLoading(false);
               let itemList = response.data;
@@ -46,7 +47,9 @@ export default function AppProvider({children}){
           setErrorMessage, 
           queryInput, 
           setQueryInput,
-          isLoading
+          isLoading,
+          resultsLimit, 
+          setResultsLimit
         }}
         >
             {children}
