@@ -3,16 +3,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0 4.375rem;
+    padding: 0 1.11rem;
     width: 100vw;
   }
   
   .Searchbar__Welcome {
-    margin-top: 4.375rem;
-    font-size: 2.25rem;
+    margin-top: 1.11rem;
+    font-size: 1rem;
     color: var(--font-color);
     font-weight: 400;
-    transition: color 0.5s ease;
+    transition: all 0.5s ease;
   }
   
   .Searchbar__Welcome span {
@@ -77,11 +77,11 @@
   .Searchbar__Input {
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     width: 84%;
-    padding-left: 2rem;
-    height: 3.25rem;
+    padding-left: 1rem;
+    height: 2rem;
     border: none;
     color: var(--font-color);
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 100;
     background-color: transparent;
     transition: color 0.5s ease;
@@ -123,10 +123,14 @@
     cursor: pointer;
   }
 
+  .Searchbar svg{
+    height: 10px;
+  }
+
   .Searchbar__CloseSuggestions{ 
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     width: 16%;
-    background: var(--bkgd-color);
+    background: transparent;
     border: none;
     transition: border 0.5s ease;
     cursor: pointer;
@@ -174,4 +178,66 @@
   .Searchbar__SuggestionItem::before{
     content: url('../../images/suggestion_icon.svg');
     margin: 0 1rem 0 -1rem;
+  }
+
+
+  @media screen and (min-width: 600px){
+    .Searchbar {
+      padding: 0 2.2rem;
+    }
+    .Searchbar__Welcome {
+      margin-top: 2.2rem;
+      font-size: 1.13rem;
+    }
+
+    .Searchbar svg{
+      height: 15px;
+    }
+
+  }
+
+  @media screen and (min-width: 800px){
+    .Searchbar {
+      padding: 0 3.29rem;
+    }
+
+    .Searchbar__Welcome {
+      margin-top: 3.29rem;
+      font-size: 1.69rem;
+    }
+
+    .Searchbar__Input {
+      padding-left: 1.5rem;
+      height: 2.4rem;
+      font-size: 1.125rem;
+    }
+
+    .Searchbar__Icon{
+      padding-left: 3rem;
+    }
+
+    .Searchbar svg{
+      height: 20px;
+    }
+
+  }
+
+  @media screen and (min-width: 1000px){
+    .Searchbar {
+      padding: 0 4.375rem;
+    }
+
+    .Searchbar__Welcome {
+      margin-top: 4.375rem;
+      font-size: 2.25rem;
+    }
+
+    .Searchbar__Input {
+      padding-left: 2rem;
+      height: 3.25rem;
+    }
+
+    .Searchbar__Icon{
+      padding-left: 3rem;
+    }
   }
