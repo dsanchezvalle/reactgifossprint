@@ -1,7 +1,7 @@
 //Styles
 import "./Results.css";
 //Constants
-import {URLS} from '../../constants'
+import {URLS, RESULTS_LIMITS} from '../../constants'
 //Context
 import { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
@@ -33,9 +33,7 @@ export default function Results({welcomeMessage}) {
             className="Results__QuantityOptions" 
             name="Results__QuantityOptions" 
             id="Results__QuantityOptions">
-            <option value={'12'}>12</option>
-            <option value={'24'}>24</option>
-            <option value={'36'}>36</option>
+            {RESULTS_LIMITS.map((itemLimit)=><option value={itemLimit}>{itemLimit}</option>)}
           </select>
         </div>
       </section>    

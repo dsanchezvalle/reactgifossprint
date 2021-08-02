@@ -6,4 +6,5 @@ export const URLS = {
 };
 
 export const API_KEY = 'PJIoXPZ6kGC515c9JVIiurxRBwYy5RJm';
-export const RESULTS_LIMIT = '12';
+export const RESULTS_LIMITS = ['12','24','36'];
+export const SUGGESTIONS_LIMIT = '10';
