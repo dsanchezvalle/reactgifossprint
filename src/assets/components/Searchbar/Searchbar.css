@@ -81,10 +81,10 @@
     height: 2rem;
     border: none;
     color: var(--font-color);
-    font-size: 1rem;
+    font-size: .875rem;
     font-weight: 100;
     background-color: transparent;
-    transition: color 0.5s ease;
+    transition: all 0.5s ease;
   }
 
   .Searchbar__Icon{
@@ -151,7 +151,7 @@
   .Searchbar__SuggestionItem{
     padding-left: 2rem;
     color: var(--font-color);
-    font-size: 1.125rem;
+    font-size: .875rem;
     font-weight: 100;
     margin: .25rem;
     background-color: transparent;
@@ -190,6 +190,10 @@
       font-size: 1.13rem;
     }
 
+    .Searchbar__Input, .Searchbar__SuggestionItem{
+      font-size: 1rem;
+    }
+
     .Searchbar svg{
       height: 15px;
     }
@@ -209,6 +213,10 @@
     .Searchbar__Input {
       padding-left: 1.5rem;
       height: 2.4rem;
+      font-size: 1.125rem;
+    }
+
+    .Searchbar__SuggestionItem{
       font-size: 1.125rem;
     }
 
