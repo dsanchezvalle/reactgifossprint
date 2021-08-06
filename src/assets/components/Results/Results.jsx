@@ -26,6 +26,7 @@ export default function Results({welcomeMessage}) {
           queryInput.length>0 && 
           [<span key='forText'>for </span>, <span key='inputTag' className="Results__InputQuery">{queryInput}</span>]}
         </h3>
+        {/* Displaying options to switch number of results */}
         <div className="Results__Quantity">
           <label className="Results__QuantityLabel" htmlFor="Results__QuantityOptions"># Results</label>
           <select 
