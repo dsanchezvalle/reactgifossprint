@@ -10,7 +10,7 @@ import { AppContext } from "../../contexts/AppContext";
 //Constants and Icons
 import { ReactComponent as SearchIcon } from "../../images/search_icon.svg";
 import { ReactComponent as CloseIcon } from "../../images/close_icon.svg";
-import {URLS, API_KEY, SUGGESTIONS_LIMIT} from '../../constants'
+import { URLS, API_KEY, SUGGESTIONS_LIMIT } from '../../constants'
 
 export default function Searchbar() {
   //States and Context

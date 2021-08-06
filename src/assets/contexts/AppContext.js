@@ -1,7 +1,5 @@
 //Dependencies
 import {createContext, useState, useEffect} from 'react';
-//Constants
-import {URLS, API_KEY} from '../constants'
 
 //Context creation
 export const AppContext = createContext();
