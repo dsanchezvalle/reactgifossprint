@@ -1,16 +1,18 @@
+/* Importing fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
 
+/* Defining general styles and custom properties */
 :root {
+  /* Font Colors */
   --light-font-color: rgb(87, 46, 229);
   --dark-font-color: rgb(255, 255, 255);
   --font-color: rgb(87, 46, 229);
-
+  /* Background Colors */
   --light-bkgd-color: rgb(255, 255, 255);
   --dark-bkgd-color: rgb(55, 55, 55);
   --bkgd-color: rgb(255, 255, 255);
-
+  /* Utils */
   --search-btn-color: rgb(87, 46, 229);
-
   --border-radius: 1.5rem;
 }
 
