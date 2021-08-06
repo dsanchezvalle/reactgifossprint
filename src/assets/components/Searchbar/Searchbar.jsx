@@ -19,13 +19,11 @@ export default function Searchbar() {
   const [userInput, setUserInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   
+  /* Handlers */
   //Search button handler
   function handleSearchButton(){
     setQueryInput(userInput);
-    setGifList([]);
-    setShowSuggestions(false);
-    setSuggestionList([]);
-    setErrorMessage('');
+    resetBeforeNewSearch();
   }
   //Input change handler
   function handleInputChange(input){
@@ -39,10 +37,7 @@ export default function Searchbar() {
   function handleCloseSuggestionsButton(){
     setQueryInput('');
     setUserInput('');
-    setGifList([]);
-    setShowSuggestions(false);
-    setSuggestionList([]);
-    setErrorMessage('');
+    resetBeforeNewSearch();
   }
 
   //Handler on suggestions click
@@ -55,10 +50,7 @@ export default function Searchbar() {
       setQueryInput(e.target.value);
       if (!showSuggestions) return;
     }
-      setGifList([]);
-      setShowSuggestions(false);
-      setSuggestionList([]);
-      setErrorMessage('');
+      resetBeforeNewSearch();
   }
 
   //Handler when the user presses Enter key
@@ -66,11 +58,16 @@ export default function Searchbar() {
     if(e.key === "Enter"){
       setUserInput(e.target.value); 
       setQueryInput(e.target.value);
-      setGifList([]);
-      setShowSuggestions(false);
-      setSuggestionList([]);
-      setErrorMessage('');
+      resetBeforeNewSearch();
     }
+  }
+
+  //Resets gifList, showSuggestions, suggestionList and errorMessage
+  function resetBeforeNewSearch(){
+    setGifList([]);
+    setShowSuggestions(false);
+    setSuggestionList([]);
+    setErrorMessage('');
   }
 
   //Effect to fetch suggestions list
