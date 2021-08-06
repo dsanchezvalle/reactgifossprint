@@ -14,7 +14,7 @@ import {URLS, API_KEY, SUGGESTIONS_LIMIT} from '../../constants'
 
 export default function Searchbar() {
   //States and Context
-  const {setGifList, setQueryInput, setErrorMessage} = useContext(AppContext);
+  const {gifList, setGifList, queryInput, setQueryInput, setErrorMessage, setIsLoading, resultsLimit } = useContext(AppContext);
   const [suggestionList, setSuggestionList] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -70,7 +70,8 @@ export default function Searchbar() {
     setErrorMessage('');
   }
 
-  //Effect to fetch suggestions list
+  /* Effects */ 
+  //Effect to fetch suggestions according to userInput
   useEffect(()=>{
     if(userInput.length>0 && showSuggestions){
     let getSuggestions = async()=>{
@@ -86,6 +87,30 @@ export default function Searchbar() {
     getSuggestions();}
   }, [userInput, showSuggestions, setErrorMessage]);
   
+  //Effect to fetch gifs
+  useEffect(()=>{
+    if (gifList.length === 0 && queryInput.length>0){
+        let getGifs = async()=>{
+          try{
+            setIsLoading(true);
+            let fetchedData = await fetch(`${URLS.searchEndPoint}?api_key=${API_KEY}&q=${queryInput}&limit=${resultsLimit}&offset=0&rating=g&lang=en`);
+            let response = await fetchedData.json();
+            setIsLoading(false);
+            let itemList = response.data;
+            if(itemList.length>0){
+              setGifList(itemList);
+            } else if(itemList.length === 0){
+              setErrorMessage('We did not find any coincidence. Try again :)');
+            }
+          }catch(err){
+              console.warn(err.message)
+              setErrorMessage("Whoops! We got an error while bringing your gifs. Try again.")
+          }
+        }   
+        getGifs();
+      }
+    }, [queryInput, gifList, resultsLimit]);
+
   return (
     <section className="Searchbar">
       <h2 className="Searchbar__Welcome">
