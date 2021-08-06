@@ -116,6 +116,7 @@
   animation: loader-animation 1.3s linear infinite;
 }
 
+/* Loader animation */
 @keyframes loader-animation {
   0% {
     transform: rotate(0deg);
@@ -125,6 +126,7 @@
   }
 }
 
+/* Media Queries */
 @media screen and (min-width: 480px){
   .Results__Header{ 
     flex-direction: row;
