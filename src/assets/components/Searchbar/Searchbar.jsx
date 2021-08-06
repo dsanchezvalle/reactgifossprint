@@ -13,11 +13,13 @@ import { ReactComponent as CloseIcon } from "../../images/close_icon.svg";
 import {URLS, API_KEY, SUGGESTIONS_LIMIT} from '../../constants'
 
 export default function Searchbar() {
-  const [suggestionList, setSuggestionList] = useState([]);
+  //States and Context
   const {setGifList, setQueryInput, setErrorMessage} = useContext(AppContext);
+  const [suggestionList, setSuggestionList] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
-
+  
+  //Search button handler
   function handleSearchButton(){
     setQueryInput(userInput);
     setGifList([]);
@@ -25,7 +27,7 @@ export default function Searchbar() {
     setSuggestionList([]);
     setErrorMessage('');
   }
-
+  //Input change handler
   function handleInputChange(input){
     setUserInput(input);
     setShowSuggestions(true);
@@ -33,7 +35,7 @@ export default function Searchbar() {
       setSuggestionList([]);
     }
   }
-  
+  //Close suggestions cross handler
   function handleCloseSuggestionsButton(){
     setQueryInput('');
     setUserInput('');
@@ -43,23 +45,7 @@ export default function Searchbar() {
     setErrorMessage('');
   }
 
-  useEffect(()=>{
-    if(userInput.length>0 && showSuggestions){
-    let getSuggestions = async()=>{
-    try{
-      let fetchedData = await fetch(`${URLS.searchEndPoint}/tags?api_key=${API_KEY}&q=${userInput}&limit=${SUGGESTIONS_LIMIT}&offset=0&rating=g&lang=en`);
-      let response = await fetchedData.json();
-      let itemList = response.data;
-      setSuggestionList(itemList);
-      }catch(err){
-        setErrorMessage("Whoops! We got an error while bringing your suggestions. Try again.")
-      }finally{
-        //Clean up
-      } 
-    }
-    getSuggestions();}
-  }, [userInput, showSuggestions]);
-
+  //Handler on suggestions click
   function handleSuggestionClick(e){
     if(e.target.id !== "Searchbar__Input"){
       setUserInput(e.target.innerHTML); 
@@ -75,6 +61,7 @@ export default function Searchbar() {
       setErrorMessage('');
   }
 
+  //Handler when the user presses Enter key
   function handleKeyDown(e){
     if(e.key === "Enter"){
       setUserInput(e.target.value); 
@@ -85,6 +72,22 @@ export default function Searchbar() {
       setErrorMessage('');
     }
   }
+
+  //Effect to fetch suggestions list
+  useEffect(()=>{
+    if(userInput.length>0 && showSuggestions){
+    let getSuggestions = async()=>{
+    try{
+      let fetchedData = await fetch(`${URLS.searchEndPoint}/tags?api_key=${API_KEY}&q=${userInput}&limit=${SUGGESTIONS_LIMIT}&offset=0&rating=g&lang=en`);
+      let response = await fetchedData.json();
+      let itemList = response.data;
+      setSuggestionList(itemList);
+      }catch(err){
+        setErrorMessage("Whoops! We got an error while bringing your suggestions. Try again.")
+      } 
+    }
+    getSuggestions();}
+  }, [userInput, showSuggestions, setErrorMessage]);
   
   return (
     <section className="Searchbar">
