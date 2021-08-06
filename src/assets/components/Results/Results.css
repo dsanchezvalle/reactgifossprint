@@ -38,7 +38,7 @@
 
 .Results__QuantityOptions{
   font-size: .75rem;
-  color: var(--search-btn-color);
+  color: var(--search-btn-color) !important;
   border-radius: 6px;
 }
 
