@@ -1,0 +1,78 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 2rem;
+    padding: 2rem 1.5rem;    
+  }
+
+  .Header__Logo{
+    width: 2rem;
+    transition: all 0.5s ease;
+  }
+  
+  .Header__ThemeButton {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--font-color);
+    font-size: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    font-weight: bold;
+    background-color: transparent;
+    color: var(--font-color);
+    transition: all 0.5s ease;
+  }
+
+  .Header__ThemeButton:hover{
+    border: 1px solid var(--font-color);
+    color: var(--bkgd-color);
+    background-color: var(--font-color);
+  }
+
+  @media screen and (min-width: 600px){
+    .Header {
+      height: 2.5rem;
+      padding: 2.5rem 2.8rem;
+    }
+
+    .Header__Logo{
+      width: 2.5rem;
+    } 
+
+    .Header__ThemeButton {
+      font-size: 0.5rem;
+      padding: 0.5rem 1.25rem;
+    }
+  }
+
+  @media screen and (min-width: 800px){
+    .Header{
+      height: 2.75rem;
+      padding: 2.75rem 3.5rem;
+    }
+
+    .Header__Logo{
+      width: 3.25rem;
+    }
+
+    .Header__ThemeButton { 
+      font-size: 0.75rem;
+      padding: 0.75rem 1.75rem;
+    }
+  }
+
+  @media screen and (min-width: 1000px){
+    .Header{
+      height: 3.13rem;
+      padding: 3rem 4.69rem;
+    }
+
+    .Header__Logo{
+      width: 3.75rem;
+    }
+
+    .Header__ThemeButton { 
+      font-size: 0.875rem;
+      padding: 1rem 2.25rem;
+    }
+  }
