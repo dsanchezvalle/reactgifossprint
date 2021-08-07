@@ -109,7 +109,7 @@ export default function Searchbar() {
         }   
         getGifs();
       }
-    }, [queryInput, gifList, resultsLimit]);
+    }, [queryInput, gifList, resultsLimit, setErrorMessage, setGifList, setIsLoading]);
 
   return (
     <section className="Searchbar">
