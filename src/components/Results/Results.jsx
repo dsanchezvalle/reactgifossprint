@@ -1,14 +1,23 @@
 //Styles
 import "./Results.css";
 //Constants
-import {URLS, RESULTS_LIMITS} from '../../constants'
+import {URLS, RESULTS_LIMITS} from '../../assets/constants'
 //Context
 import { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 
 export default function Results({welcomeMessage}) {
   //Context
-  const {gifList, errorMessage, isLoading, queryInput, resultsLimit, setResultsLimit, setGifList, setQueryInput} = useContext(AppContext);
+  const {
+    gifList, 
+    errorMessage, 
+    isLoading, 
+    queryInput, 
+    resultsLimit, 
+    setResultsLimit, 
+    setGifList, 
+    setQueryInput
+  } = useContext(AppContext);
   
   //Results limit handler
   function handleResultsLimit(e){

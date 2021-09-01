@@ -88,7 +88,7 @@
   }
 
   .Searchbar__Icon{
-    background: url("../../images/suggestion_icon.svg");
+    background: url("../../assets/images/suggestion_icon.svg");
     background-size: var(--filter-icon-bkgd-size-sm);
     background-repeat: no-repeat;
     background-position-x: 1rem;
@@ -176,7 +176,7 @@
   }
 
   .Searchbar__SuggestionItem::before{
-    content: url('../../images/suggestion_icon.svg');
+    content: url("../../assets/images/suggestion_icon.svg");
     margin: 0 1rem 0 -1rem;
   }
 

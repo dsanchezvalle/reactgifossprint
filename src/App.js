@@ -5,12 +5,12 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 //Components
-import Header from "./assets/components/Header/Header";
-import Searchbar from "./assets/components/Searchbar/Searchbar";
-import Results from "./assets/components/Results/Results";
+import Header from "./components/Header/Header";
+import Searchbar from "./components/Searchbar/Searchbar";
+import Results from "./components/Results/Results";
 
 //App Context
-import AppProvider from "./assets/contexts/AppContext";
+import AppProvider from "./contexts/AppContext";
 
 export default function App() {
   //States
@@ -44,13 +44,8 @@ export default function App() {
 
 function updateThemeColors(isDarkMode) {
   let root = document.documentElement;
-
-  if (isDarkMode) {
-    root.style.setProperty("--bkgd-color", "var(--dark-bkgd-color)");
-    root.style.setProperty("--font-color", "var(--dark-font-color)");
-  } else {
-    root.style.setProperty("--bkgd-color", "var(--light-bkgd-color)");
-    root.style.setProperty("--font-color", "var(--light-font-color)");
-  }
+  let selectedTheme = isDarkMode ? 'dark':'light';
+  root.style.setProperty("--bkgd-color", `var(--${selectedTheme}-bkgd-color)`);
+  root.style.setProperty("--font-color", `var(--${selectedTheme}-font-color)`);
 }
 
