@@ -8,13 +8,21 @@ import "./Searchbar.css";
 import { AppContext } from "../../contexts/AppContext";
 
 //Constants and Icons
-import { ReactComponent as SearchIcon } from "../../images/search_icon.svg";
-import { ReactComponent as CloseIcon } from "../../images/close_icon.svg";
-import { URLS, API_KEY, SUGGESTIONS_LIMIT } from '../../constants'
+import { ReactComponent as SearchIcon } from "../../assets/images/search_icon.svg";
+import { ReactComponent as CloseIcon } from "../../assets/images/close_icon.svg";
+import { URLS, API_KEY, SUGGESTIONS_LIMIT } from '../../assets/constants'
 
 export default function Searchbar() {
   //States and Context
-  const {gifList, setGifList, queryInput, setQueryInput, setErrorMessage, setIsLoading, resultsLimit } = useContext(AppContext);
+  const {
+    gifList, 
+    setGifList, 
+    queryInput, 
+    setQueryInput, 
+    setErrorMessage, 
+    setIsLoading, 
+    resultsLimit 
+  } = useContext(AppContext);
   const [suggestionList, setSuggestionList] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
