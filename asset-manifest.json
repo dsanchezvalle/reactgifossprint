@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/reactgifossprint/static/css/main.a4bdd7fa.chunk.css",
-    "main.js": "/reactgifossprint/static/js/main.6d3536e9.chunk.js",
-    "main.js.map": "/reactgifossprint/static/js/main.6d3536e9.chunk.js.map",
+    "main.css": "/reactgifossprint/static/css/main.06e69810.chunk.css",
+    "main.js": "/reactgifossprint/static/js/main.a26b3e7a.chunk.js",
+    "main.js.map": "/reactgifossprint/static/js/main.a26b3e7a.chunk.js.map",
     "runtime-main.js": "/reactgifossprint/static/js/runtime-main.720cb66f.js",
     "runtime-main.js.map": "/reactgifossprint/static/js/runtime-main.720cb66f.js.map",
     "static/js/2.31b6d27d.chunk.js": "/reactgifossprint/static/js/2.31b6d27d.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.c1525328.chunk.js": "/reactgifossprint/static/js/3.c1525328.chunk.js",
     "static/js/3.c1525328.chunk.js.map": "/reactgifossprint/static/js/3.c1525328.chunk.js.map",
     "index.html": "/reactgifossprint/index.html",
-    "static/css/main.a4bdd7fa.chunk.css.map": "/reactgifossprint/static/css/main.a4bdd7fa.chunk.css.map",
+    "static/css/main.06e69810.chunk.css.map": "/reactgifossprint/static/css/main.06e69810.chunk.css.map",
     "static/js/2.31b6d27d.chunk.js.LICENSE.txt": "/reactgifossprint/static/js/2.31b6d27d.chunk.js.LICENSE.txt",
     "static/media/close_icon.b04c8715.svg": "/reactgifossprint/static/media/close_icon.b04c8715.svg",
     "static/media/search_icon.b7b12393.svg": "/reactgifossprint/static/media/search_icon.b7b12393.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.720cb66f.js",
     "static/js/2.31b6d27d.chunk.js",
-    "static/css/main.a4bdd7fa.chunk.css",
-    "static/js/main.6d3536e9.chunk.js"
+    "static/css/main.06e69810.chunk.css",
+    "static/js/main.a26b3e7a.chunk.js"
   ]
 }
