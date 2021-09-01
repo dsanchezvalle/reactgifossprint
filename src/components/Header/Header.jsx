@@ -1,7 +1,7 @@
 //Styles
 import "./Header.css";
 //Constants
-import {URLS} from '../../constants'
+import {URLS} from '../../assets/constants'
 
 export default function Header({ isDark, onThemeChange }) {
   let logoPath = URLS.publicPath + `/images/logo${isDark? '-dark':''}.png`;
